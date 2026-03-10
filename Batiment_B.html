@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Bâtiment B - Université d'Orléans</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:"Segoe UI", Arial, sans-serif;
+background:#f2f5fb;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+color:#333;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#0b2a6b;
+color:white;
+padding:22px 50px;
+font-size:22px;
+font-weight:600;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* CONTAINER */
+
+.container{
+max-width:900px;
+margin:120px auto 60px auto;
+padding:40px;
+background:white;
+border-radius:16px;
+box-shadow:0 15px 40px rgba(0,0,0,0.12);
+text-align:center;
+}
+
+/* TITRES */
+
+h1{
+font-size:36px;
+color:#0b2a6b;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:18px;
+color:#555;
+margin-bottom:35px;
+}
+
+/* CHOIX TRAJET */
+
+.direction-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.btn{
+padding:16px 34px;
+border:none;
+border-radius:30px;
+font-weight:600;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.btn-aller{
+background:#123a8f;
+color:white;
+}
+
+.btn-retour{
+background:#e6ebf7;
+color:#123a8f;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* VIDEO */
+
+.video-card{
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 12px 30px rgba(0,0,0,0.25);
+display:none;
+animation:fade 0.6s ease;
+}
+
+video{
+width:100%;
+aspect-ratio:16/9;
+object-fit:cover;
+background:black;
+}
+
+/* ANIMATION */
+
+@keyframes fade{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* BOUTON RETOUR */
+
+.btn-back{
+display:inline-block;
+margin-top:40px;
+padding:14px 36px;
+background:#123a8f;
+color:white;
+text-decoration:none;
+font-weight:600;
+border-radius:30px;
+transition:0.3s;
+}
+
+.btn-back:hover{
+background:#0b2a6b;
+transform:translateY(-2px);
+box-shadow:0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* FOOTER */
+
+footer{
+margin-top:auto;
+padding:25px;
+text-align:center;
+font-size:14px;
+color:#777;
+}
+
+@media(max-width:768px){
+
+.container{
+margin:140px 20px 60px 20px;
+padding:25px;
+}
+
+h1{
+font-size:28px;
+}
+
+.subtitle{
+font-size:16px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+Université d'Orléans
+</header>
+
+<div class="container">
+
+<h1>Bâtiment B</h1>
+<p class="subtitle"> Choisissez votre trajet</p>
+
+<div class="direction-buttons">
+
+<button class="btn btn-aller" onclick="videoAller()">
+➡ Aller vers le bâtiment
+</button>
+
+<button class="btn btn-retour" onclick="videoRetour()">
+⬅ Retour vers l'entrée
+</button>
+
+</div>
+
+<div class="video-card" id="videoBox">
+
+<video id="videoPlayer" controls>
+<source src="" type="video/mp4">
+Votre navigateur ne supporte pas la vidéo.
+</video>
+
+</div>
+
+<a href="TESTT.html" class="btn-back">← Retour au campus</a>
+
+</div>
+
+<footer>
+© 2026 Université d'Orléans — Service des infrastructures
+</footer>
+
+<script>
+
+function videoAller(){
+
+let video = document.getElementById("videoPlayer");
+let box = document.getElementById("videoBox");
+
+video.src="b001-b012.mov";
+box.style.display="block";
+video.play();
+
+}
+
+function videoRetour(){
+
+let video = document.getElementById("videoPlayer");
+let box = document.getElementById("videoBox");
+
+video.src="b012-b001.mov";
+box.style.display="block";
+video.play();
+
+}
+
+</script>
+
+</body>
+</html>
